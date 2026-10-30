@@ -1,0 +1,369 @@
+/* ---------- پایه ---------- */
+:root {
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --text-light: #777;
+    --bg: #ffffff;
+    --border: #e5e5e5;
+    --accent: #8c1515; /* رنگ قرمز استنفورد برای لینک‌ها */
+    --sidebar-bg: #fafafa;
+    --font-fa: 'Vazirmatn', sans-serif;
+    --font-en: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-fa);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.9;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+a:hover {
+    border-bottom-color: var(--accent);
+}
+
+/* ---------- چیدمان کلی ---------- */
+.page-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 80px);
+    padding: 60px 40px;
+    gap: 80px;
+}
+
+/* ---------- ستون کناری ---------- */
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.sidebar-inner {
+    position: sticky;
+    top: 60px;
+}
+
+.name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 2px;
+}
+
+.name-en {
+    font-family: var(--font-en);
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.role {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.sidebar-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 25px 0;
+}
+
+.contact-list {
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+.contact-list li {
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
+
+.contact-list .label {
+    display: inline-block;
+    min-width: 60px;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-nav a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border: none;
+    padding: 4px 0;
+    transition: color 0.2s;
+}
+
+.sidebar-nav a:hover {
+    color: var(--accent);
+}
+
+/* ---------- محتوای اصلی ---------- */
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.content-section {
+    margin-bottom: 50px;
+}
+
+.section-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 8px;
+    margin-bottom: 22px;
+}
+
+p {
+    margin-bottom: 14px;
+    color: var(--text-muted);
+    text-align: justify;
+}
+
+/* ---------- ورودی‌های شغلی/تحصیلی ---------- */
+.entry {
+    margin-bottom: 25px;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.entry-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.entry-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    white-space: nowrap;
+}
+
+.entry-org {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+/* ---------- مهارت‌ها ---------- */
+.skill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.skill-row:last-child {
+    border-bottom: none;
+}
+
+.skill-category-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    min-width: 160px;
+    color: var(--text);
+}
+
+.skill-list {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ---------- پروژه‌ها ---------- */
+.project-entry {
+    margin-bottom: 22px;
+}
+
+.project-entry h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.project-entry h3 a {
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+}
+
+.project-entry h3 a:hover {
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+}
+
+.project-entry p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ---------- گواهی‌نامه‌ها ---------- */
+.cert-list {
+    list-style: none;
+}
+
+.cert-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.cert-thumb-link {
+    flex-shrink: 0;
+    display: block;
+    width: 110px;
+    height: 70px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.cert-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.cert-thumb-link:hover .cert-thumb {
+    opacity: 0.8;
+}
+
+.cert-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cert-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.cert-issuer {
+    font-size: 0.82rem;
+    color: var(--text-light);
+}
+
+.cert-hint {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* ---------- فوتر ---------- */
+.page-footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-light);
+}
+
+/* ---------- ریسپانسیو ---------- */
+@media (max-width: 860px) {
+    .page-wrapper {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 40px;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar-inner {
+        position: static;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .entry-header {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .skill-category-label {
+        min-width: 100%;
+    }
+
+    .cert-item {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .cert-thumb-link {
+        width: 80px;
+        height: 52px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+    .cert-item {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .cert-thumb-link {
+        width: 100%;
+        height: 140px;
+    }
+}
