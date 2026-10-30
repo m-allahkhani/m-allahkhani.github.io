@@ -6,7 +6,6 @@
     --bg: #ffffff;
     --border: #e5e5e5;
     --accent: #8c1515; /* رنگ قرمز استنفورد برای لینک‌ها */
-    --sidebar-bg: #fafafa;
     --font-fa: 'Vazirmatn', sans-serif;
     --font-en: 'Inter', sans-serif;
 }
@@ -15,10 +14,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
@@ -41,6 +36,8 @@ a:hover {
     border-bottom-color: var(--accent);
 }
 
+.mt-4 { margin-top: 40px; }
+
 /* ---------- چیدمان کلی ---------- */
 .page-wrapper {
     display: flex;
@@ -48,7 +45,7 @@ a:hover {
     margin: 0 auto;
     min-height: calc(100vh - 80px);
     padding: 60px 40px;
-    gap: 80px;
+    gap: 60px;
 }
 
 /* ---------- ستون کناری ---------- */
@@ -89,6 +86,36 @@ a:hover {
     margin: 25px 0;
 }
 
+/* ناوبری تب‌ها */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nav-link {
+    font-size: 1rem;
+    color: var(--text-muted);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    border-right: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background-color: #f5f5f5;
+    color: var(--text);
+    border-bottom-color: transparent;
+}
+
+.nav-link.active {
+    background-color: #f5f5f5;
+    color: var(--text);
+    font-weight: 600;
+    border-right-color: var(--accent);
+}
+
 .contact-list {
     list-style: none;
     font-size: 0.9rem;
@@ -108,32 +135,25 @@ a:hover {
     letter-spacing: 0.05em;
 }
 
-.sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.sidebar-nav a {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    border: none;
-    padding: 4px 0;
-    transition: color 0.2s;
-}
-
-.sidebar-nav a:hover {
-    color: var(--accent);
-}
-
 /* ---------- محتوای اصلی ---------- */
 .main-content {
     flex: 1;
     min-width: 0;
 }
 
-.content-section {
-    margin-bottom: 50px;
+/* مدیریت نمایش تب‌ها */
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .section-heading {
@@ -153,8 +173,8 @@ p {
     text-align: justify;
 }
 
-/* ---------- ورودی‌های شغلی/تحصیلی ---------- */
-.entry {
+/* ---------- ورودی‌های شغلی/تحصیلی/پروژه ---------- */
+.entry, .project-entry {
     margin-bottom: 25px;
 }
 
@@ -164,12 +184,23 @@ p {
     align-items: baseline;
     flex-wrap: wrap;
     gap: 8px;
+    margin-bottom: 2px;
 }
 
 .entry-header h3 {
     font-size: 1rem;
     font-weight: 600;
     color: var(--text);
+}
+
+.entry-header h3 a {
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+}
+
+.entry-header h3 a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
 }
 
 .entry-date {
@@ -183,6 +214,11 @@ p {
     color: var(--accent);
     font-weight: 500;
     margin-bottom: 6px;
+}
+
+.project-entry p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
 }
 
 /* ---------- مهارت‌ها ---------- */
@@ -209,32 +245,6 @@ p {
 .skill-list {
     font-size: 0.9rem;
     color: var(--text-muted);
-}
-
-/* ---------- پروژه‌ها ---------- */
-.project-entry {
-    margin-bottom: 22px;
-}
-
-.project-entry h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.project-entry h3 a {
-    color: var(--text);
-    border-bottom: 1px solid var(--border);
-}
-
-.project-entry h3 a:hover {
-    border-bottom-color: var(--accent);
-    color: var(--accent);
-}
-
-.project-entry p {
-    font-size: 0.9rem;
-    margin-bottom: 0;
 }
 
 /* ---------- گواهی‌نامه‌ها ---------- */
@@ -311,7 +321,7 @@ p {
     .page-wrapper {
         flex-direction: column;
         padding: 30px 20px;
-        gap: 40px;
+        gap: 30px;
     }
 
     .sidebar {
@@ -325,7 +335,19 @@ p {
     .sidebar-nav {
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 8px 16px;
+        gap: 8px;
+    }
+
+    .nav-link {
+        border-right: none;
+        border-bottom: 3px solid transparent;
+        padding: 8px 10px;
+    }
+
+    .nav-link.active {
+        border-right-color: transparent;
+        border-bottom-color: var(--accent);
+        background-color: transparent;
     }
 
     .entry-header {
@@ -335,16 +357,6 @@ p {
 
     .skill-category-label {
         min-width: 100%;
-    }
-
-    .cert-item {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .cert-thumb-link {
-        width: 80px;
-        height: 52px;
     }
 }
 
@@ -356,9 +368,10 @@ p {
     .name {
         font-size: 1.5rem;
     }
-
+    
     .cert-item {
         flex-direction: column;
+        align-items: flex-start;
         gap: 8px;
     }
 
